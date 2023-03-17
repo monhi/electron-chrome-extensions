@@ -64,6 +64,7 @@ export class ExtensionStore extends EventEmitter {
       throw new Error('createWindow is not implemented')
     }
 
+	details.url =  event.extension.id + '/' + details.url;
     const win = await this.impl.createWindow(details)
 
     this.addWindow(win)
