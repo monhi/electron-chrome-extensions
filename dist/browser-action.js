@@ -425,6 +425,7 @@ const injectBrowserAction = () => {
   padding: 0;
   position: relative;
   outline: none;
+  -webkit-app-region: none;
 }
 
 .action:hover {

@@ -93,7 +93,7 @@ export class PopupView {
     if (!this.usingPreferredSize) {
       // Set large initial size to avoid overflow
       this.setSize({ width: PopupView.BOUNDS.maxWidth, height: PopupView.BOUNDS.maxHeight })
-
+	  this.updatePosition();
       // Wait for content and layout to load
       await new Promise((resolve) => setTimeout(resolve, 100))
       if (this.destroyed) return
@@ -195,6 +195,16 @@ export class PopupView {
     // Convert to ints
     x = Math.floor(x)
     y = Math.floor(y)
+	
+	if( x < 0 )
+	{
+		x = 25;
+	}
+	
+	if( y < 0 )
+	{
+		y = 100;
+	}
 
     debug(`updatePosition`, { x, y })
 
